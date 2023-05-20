@@ -15,4 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag jfile-manager:$(date +%s)
+      run: |
+        npm install
+        npx qx compile
+        docker build . --file Dockerfile --tag jfile-manager:$(date +%s)
