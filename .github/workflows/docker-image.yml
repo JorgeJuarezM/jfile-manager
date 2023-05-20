@@ -29,7 +29,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push
-        if: steps.cache-source.outputs.cache-hit != 'true'
+        if: steps.cache-source.outputs.cache-hit == 'true'
         uses: docker/build-push-action@v4
         with:
           push: true
