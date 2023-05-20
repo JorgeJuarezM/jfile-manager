@@ -19,7 +19,6 @@ jobs:
           path: compiled
           key: ${{ runner.os }}-jfile-manager
       - name: Build Application
-        if: steps.cache-source.outputs.cache-hit != 'true'
         run: |
           npm install
           npx qx compile
